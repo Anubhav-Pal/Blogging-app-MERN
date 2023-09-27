@@ -8,3 +8,7 @@
   .form_input {
     @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
   }
+
+  .bg-light{
+    background-color: #F4F4F4;
+  }

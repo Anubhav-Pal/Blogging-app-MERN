@@ -1,26 +1,36 @@
 import React from 'react'
 
-const Blog = () => {
-
-  // const date = new Date().getDate();
+const Blog = (props) => {
+  const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
   const currentDate = new Date();
   const year = currentDate.getFullYear();
-  const month = currentDate.getMonth() + 1; // Months are zero-based (0 = January)
+  const monthNumber = currentDate.getMonth() + 1; // Months are zero-based (0 = January)
   const day = currentDate.getDate();
-  // console.log(`${year}-${month}-${day}`);
+  const monthName = monthNames[monthNumber];
 
-  // console.log(date)
   return (
-    <div className='m-4 mt-6 flex flex-col gap-2'>
-      <div className=' text-[12px]   text-gray-500'>
-        {`${day} ${month} ${year}`}
+    <div className='flex flex-col gap-4 items-start'>
+
+      <div className='text-[12px] text-gray-500'>
+        {`${monthNames[monthNumber]} ${day},${year}`}
       </div>
-
-      <div className=''>Bad Design vs. Good Design: 5 Examples We can Learn From</div>
-      <div className='text-xs opacity-50 mb-4'>Bad Design vs. Good Design: 5 Examples We can Learn From</div>
-      <div className='p-2 bg-slate-400 text-xs rounded-md'>Tag</div>
-      <hr />
-
+      <div className=''>{props.title}</div>
+      <div className='text-xs opacity-50 mb-4'>{props.desc}</div>
+      <button className='p-2 bg-light text-[10px] rounded-sm text-gray-800 mb-4 '>#{props.tag}</button>
+      <hr className='w-full' />
     </div>
   )
 }
